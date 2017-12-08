@@ -120,8 +120,8 @@ map6 = get_map(location = c(lon = avg_long, lat = avg_lat), zoom = 11, maptype =
 plot(map6)
 
 # change shape of point
-crab_map <- ggmap(map6, extent = "device") +
-  geom_point(data = crabs, aes(x = lon , y = lat), fill = "red", size = 3.75, shape = 24) 
+crab_map <- ggmap(map6, extent = "device", legend = "bottomleft") +
+  geom_point(data = crabs, aes(x = lon , y = lat), size = 3.75, shape = 24, fill = "black") 
   
 
 ### save map
