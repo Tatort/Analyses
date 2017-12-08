@@ -96,7 +96,7 @@ site_map <- ggmap(map, extent = "device", legend = "bottomleft") +
 
 ggsave(filename = "map_island.jpeg", plot = site_map, width = 8, height = 6, dpi = 300) 
 
-##### Create another map of crab trap experiment area
+###### Create another map of crab trap experiment area
 
 crabs <- read.csv("data/crab_sample.csv")
 
@@ -116,11 +116,12 @@ avg_lat = mean(crabs$lat)
 
 ### get map
 
-map6 = get_map(location = c(lon = avg_long, lat = avg_lat), zoom = 11, maptype = "terrain")
+map6 = get_map(location = c(lon = avg_long, lat = avg_lat), zoom = 11, maptype = "watercolor")
 plot(map6)
 
+# change shape of point
 crab_map <- ggmap(map6, extent = "device") +
-  geom_point(data = crabs, aes(x = lon , y = lat, color = "red"), size = 2.75) 
+  geom_point(data = crabs, aes(x = lon , y = lat), fill = "red", size = 3.75, shape = 24) 
   
 
 ### save map
